@@ -206,6 +206,9 @@ class GroceryStore(object):
 
         # Create dictionary of timestamps
         timestamps = {'customer_id': customer,
+                      'num_produce': self.num_produce(),
+                      'num_butcher': self.num_butcher(),
+                      'num_pantry': self.num_pantry(),
                       'num_items': self.num_items(),
                       'arrival_ts': arrival_ts,
                       'got_cart_ts': got_cart_ts,
@@ -543,8 +546,8 @@ def process_command_line():
                         help="Mean number of butcher items (default = 2)",
                         type=float)
 
-    parser.add_argument("--butcher_sd", default=0.2,
-                        help="Standard deviation number of butcher items (default = 0.2)",
+    parser.add_argument("--butcher_sd", default=0.5,
+                        help="Standard deviation number of butcher items (default = 0.5)",
                         type=float)
 
     parser.add_argument("--butcher_time_mean", default=0,
@@ -631,7 +634,7 @@ def main():
     del_files = ['checkout_occupancy', 'store_occupancy',
                 'store_customer_log', 'consolidated_store_log']
     for del_f in del_files:
-        for csv_f in output_dir.glob(f'{del_f}{scenario}*.csv'):
+        for csv_f in output_dir.glob(f'{del_f}_{scenario}.csv'):
             csv_f.unlink()
 
     # Main simulation replication loop
@@ -640,7 +643,7 @@ def main():
 
     # Consolidate the patient logs and compute summary stats
     # Create list of performance measures for looping over
-    performance_measures = ['wait_for_cart', 'wait_for_butcher', 'wait_for_cashier',
+    performance_measures = ['wait_for_cart', 'wait_for_butcher', 'wait_for_cashier', 'cashier_speed',
                             'time_in_system', 'time_in_system_peritem', 'num_items']
     customer_log_stats = process_sim_output(output_dir, scenario, performance_measures)
     print(f"\nScenario: {scenario}")
