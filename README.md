@@ -4,6 +4,14 @@
 This project uses the SimPy environment to model a basic grocery store. 
 The entities for this model are customers. The model maps the customers’ trip through the grocery store, records key time stamps, and performs some basic preprocessing 
 
+Easy Access - Binder
+------------
+
+This Jupyter notebook that has been "binderized" using Binder (mybinder.org).
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/rkalusniak/grocerystore/HEAD)
+
+
 Project Organization
 ------------
 
