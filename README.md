@@ -2,7 +2,7 @@
 ==============================
 
 This project uses the SimPy environment to model a basic grocery store. 
-The entities for this model are customers. The model maps the customers’ trip through the grocery store, records key time stamps, and performs some 
+The entities for this model are customers. The model maps the customers’ trip through the grocery store, records key time stamps, and performs some basic preprocessing 
 
 Project Organization
 ------------
@@ -35,12 +35,12 @@ Project Organization
     │                         generated with `pip freeze > requirements.txt`
     │
     ├── setup.py           <- Makes project pip installable (pip install -e .) so grocerystore can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── grocerystore <- Main package folder
-    │   │   ├──__init__.py    <- Marks as package
-    │   │   ├── grocerystore.py  <- This is the Python source code for the model
-	│	│	├── input	<- This folder includes the config files for running the model 
-    │	│	└── output	<- This folder includes all the output files from the model
+    └── src                <- Source code for use in this project.
+       └──── grocerystore <- Main package folder
+			├──__init__.py    <- Marks as package
+			├── grocerystore.py  <- This is the Python source code for the model
+			├── input	<- This folder includes the config files for running the model 
+    		└── output	<- This folder includes all the output files from the model
 
 
 
